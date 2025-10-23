@@ -6,7 +6,7 @@ $theme = get_theme();
     <div class="container">
         <div class="logo">
             <a href="index.php">
-                <img src="images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="logo-image">
+                <img src="assets/images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="logo-image">
                 <span class="logo-text"><?php echo COMPANY_NAME; ?></span>
             </a>
         </div>

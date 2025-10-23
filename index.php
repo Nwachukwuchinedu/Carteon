@@ -1,6 +1,6 @@
 <?php
 // Include configuration file
-require_once 'config.php';
+require_once 'utils/config.php';
 
 // Define variables for dynamic content
 $pageTitle = SITE_TITLE;
@@ -11,6 +11,7 @@ $currentYear = CURRENT_YEAR;
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,14 +21,15 @@ $currentYear = CURRENT_YEAR;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body data-theme="<?php echo $theme; ?>">
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <?php include 'includes/header.php'; ?>
+    <?php include 'components/header.php'; ?>
 
     <section id="hero">
         <div class="container">
@@ -239,7 +241,7 @@ $currentYear = CURRENT_YEAR;
             <div class="cards-grid">
                 <div class="card-item" data-card-id="1">
                     <div class="card-image">
-                        <img src="images/card1.jpg" alt="Metal Card">
+                        <img src="assets/images/card1.jpg" alt="Metal Card">
                     </div>
                     <div class="card-content">
                         <h3>Metal Card</h3>
@@ -249,7 +251,7 @@ $currentYear = CURRENT_YEAR;
                 </div>
                 <div class="card-item" data-card-id="2">
                     <div class="card-image">
-                        <img src="images/card2.jpg" alt="PVC Black Card">
+                        <img src="assets/images/card2.jpg" alt="PVC Black Card">
                     </div>
                     <div class="card-content">
                         <h3>PVC Black Card</h3>
@@ -259,7 +261,7 @@ $currentYear = CURRENT_YEAR;
                 </div>
                 <div class="card-item" data-card-id="3">
                     <div class="card-image">
-                        <img src="images/card3.jpg" alt="PVC White Card">
+                        <img src="assets/images/card3.jpg" alt="PVC White Card">
                     </div>
                     <div class="card-content">
                         <h3>PVC White Card</h3>
@@ -269,7 +271,7 @@ $currentYear = CURRENT_YEAR;
                 </div>
                 <div class="card-item" data-card-id="4">
                     <div class="card-image">
-                        <img src="images/card4.jpg" alt="Wood Card">
+                        <img src="assets/images/card4.jpg" alt="Wood Card">
                     </div>
                     <div class="card-content">
                         <h3>Wood Card</h3>
@@ -281,8 +283,9 @@ $currentYear = CURRENT_YEAR;
         </div>
     </section>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

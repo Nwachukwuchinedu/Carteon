@@ -5,7 +5,7 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="footer-logo-image">
+                <img src="assets/images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="footer-logo-image">
                 <h2><?php echo COMPANY_NAME; ?></h2>
                 <p><?php echo COMPANY_TAGLINE; ?></p>
                 <div class="social-links">

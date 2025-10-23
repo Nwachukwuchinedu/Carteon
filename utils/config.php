@@ -31,5 +31,4 @@ define('CURRENT_YEAR', date('Y'));
 define('DEFAULT_THEME', 'light');
 
 // Include functions file
-require_once 'includes/functions.php';
-?>
+require_once 'utils/functions.php';
