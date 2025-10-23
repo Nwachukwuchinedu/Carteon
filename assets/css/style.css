@@ -1665,6 +1665,10 @@ body[data-theme="dark"] .login-footer {
   .footer-links {
     grid-template-columns: repeat(2, 1fr);
   }
+
+    .hero-visual {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
