@@ -1,231 +1,282 @@
 <?php
-// Include configuration file
+// index.php - Modernized Homepage
 require_once 'utils/config.php';
-
-// Define variables for dynamic content
-$pageTitle = SITE_TITLE;
-$pageDescription = SITE_DESCRIPTION;
-$companyName = COMPANY_NAME;
-$currentYear = CURRENT_YEAR;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle; ?></title>
-    <meta name="description" content="<?php echo $pageDescription; ?>">
-    <link rel="icon" href="assets/images/logo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <?php
+    $page_title = '';
+    $page_description = SITE_DESCRIPTION;
+    include 'components/head.php';
+    ?>
 </head>
 
-<body data-theme="<?php echo $theme; ?>">
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
+<body data-theme="<?php echo get_theme(); ?>">
     <?php include 'components/header.php'; ?>
 
-    <section id="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Connect Smarter. Share Instantly.</h1>
-                <p>With <?php echo $companyName; ?> Cards, one tap is all it takes to share your details, close deals faster, and stay unforgettable.</p>
-                <div class="hero-buttons">
-                    <a href="#cta" class="btn primary"><i class="fas fa-shopping-cart"></i> Order Your Card</a>
-                    <button class="btn secondary"><i class="fas fa-boxes"></i> Place a Bulk Order</button>
+            <div class="hero-content" data-scroll data-stagger>
+                <div class="hero-badge" data-stagger-child>
+                    <span>Next Generation Business Cards</span>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="smart-card-preview">
-                    <div class="phone-mockup">
-                        <div class="screen">
-                            <div class="card-content">
-                                <div class="profile-image">
-                                    <div class="placeholder">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
-                                <h2>Sarah Chen</h2>
-                                <p class="title">Product Manager</p>
-                                <div class="contact-info">
-                                    <p>Sarah Chen</p>
-                                    <p>+234 801 234 5678</p>
-                                    <p>sarah@example.com</p>
-                                </div>
-                                <button class="btn add-contact">Add to Contacts</button>
-                            </div>
-                        </div>
-                    </div>
+
+                <h1 class="h1 typewriter" data-stagger-child>
+                    Network <span class="text-gradient">Smarter</span><br>
+                    Connect <span class="text-gradient">Instantly</span>
+                </h1>
+
+                <p class="hero-description" data-stagger-child>
+                    Share your contact information with a simple tap. No apps, no typing—just seamless connections that leave a lasting impression.
+                </p>
+
+                <div class="hero-actions" data-stagger-child>
+                    <a href="#pricing" class="cta-button primary btn-icon">
+                        <i class="fas fa-id-card"></i>
+                        <span>Get Your Card</span>
+                    </a>
+                    <a href="#how-it-works" class="cta-button secondary btn-icon">
+                        <i class="fas fa-search"></i>
+                        <span>See How It Works</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
-            <h2>How It Works</h2>
-            <p>Share your details instantly with a simple tap. No typing, no stress—just seamless connections.</p>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-hand-point-up"></i>
-                    </div>
-                    <h3>1. Tap</h3>
-                    <p>Hold your <?php echo $companyName; ?> Card near any NFC-enabled smartphone (mainly around the camera)</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-link"></i>
-                    </div>
-                    <h3>2. Connect</h3>
-                    <p>Your profile, contacts, or social links pop up instantly.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-save"></i>
-                    </div>
-                    <h3>3. Save</h3>
-                    <p>They can view your website, social media pages and store your details directly in their phone, no typing.</p>
-                </div>
+            <div class="section-header" data-scroll>
+                <h2 class="h2">Why Choose Carteon?</h2>
+                <p class="section-subtitle">Designed for professionals who value efficiency and style</p>
             </div>
-        </div>
-    </section>
 
-    <section id="why-choose-us">
-        <div class="container">
-            <h2>Why Choose <?php echo $companyName; ?>?</h2>
-            <p>Making Networking Effortless</p>
-            <div class="features-container">
-                <div class="feature-card">
+            <div class="features-grid">
+                <div class="feature-card" data-scroll>
                     <div class="feature-icon">
-                        <i class="fas fa-coins"></i>
+                        <i class="fas fa-bolt fa-2x"></i>
                     </div>
-                    <h3>One-Time Investment</h3>
-                    <p>Save money; no need to keep printing new cards.</p>
+                    <h3>One-Tap Sharing</h3>
+                    <p>Share your contact information instantly with NFC technology. No typing, no errors.</p>
                 </div>
-                <div class="feature-card">
+
+                <div class="feature-card" data-scroll>
                     <div class="feature-icon">
-                        <i class="fas fa-smile"></i>
+                        <i class="fas fa-sync-alt fa-2x"></i>
                     </div>
-                    <h3>Stress-Free Sharing</h3>
-                    <p>No one has to type your number or risk spelling errors.</p>
+                    <h3>Always Updated</h3>
+                    <p>Change your details anytime. Your digital card updates automatically—no reprints needed.</p>
                 </div>
-                <div class="feature-card">
+
+                <div class="feature-card" data-scroll>
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Works Everywhere</h3>
-                    <p>NFC for modern smartphones + QR code for all others.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-seedling"></i>
+                        <i class="fas fa-leaf fa-2x"></i>
                     </div>
                     <h3>Eco-Friendly</h3>
-                    <p>One card replaces thousands of paper cards.</p>
+                    <p>One card replaces thousands of paper business cards. Sustainable networking for the modern professional.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cta">
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2>Get Your Card Today</h2>
-            <p>Join the future of networking with <?php echo $companyName; ?> Cards. One tap is all it takes to make a lasting impression.</p>
-            <div class="cta-buttons">
-                <a href="#complimentary-cards" class="btn primary"><i class="fas fa-bolt"></i> Order Now</a>
-                <button class="btn secondary light"><i class="fas fa-calendar-check"></i> Book Design Call</button>
+            <div class="section-header" data-scroll>
+                <h2 class="h2">How It Works</h2>
+                <p class="section-subtitle">Simple, fast, and incredibly effective</p>
+            </div>
+
+            <div class="steps">
+                <div class="step" data-scroll>
+                    <div class="step-number">1</div>
+                    <h3>Tap</h3>
+                    <p>Hold your Carteon card near any NFC-enabled smartphone</p>
+                </div>
+
+                <div class="step" data-scroll>
+                    <div class="step-number">2</div>
+                    <h3>Connect</h3>
+                    <p>Your digital profile opens instantly in their browser</p>
+                </div>
+
+                <div class="step" data-scroll>
+                    <div class="step-number">3</div>
+                    <h3>Share</h3>
+                    <p>They save your contact with one click—no typing required</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="faq">
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
         <div class="container">
-            <h2>FAQs</h2>
-            <div class="faq-container">
-                <div class="faq-item">
+            <div class="section-header" data-scroll>
+                <h2 class="h2">Choose Your Card</h2>
+                <p class="section-subtitle">Premium materials, exceptional quality</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card" data-scroll>
+                    <h3>PVC Classic</h3>
+                    <div class="price">₦8,500</div>
+                    <p class="price-period">one-time payment</p>
+
+                    <ul class="features-list">
+                        <li>Premium PVC Material</li>
+                        <li>NFC Chip Technology</li>
+                        <li>QR Code Backup</li>
+                        <li>Digital Profile</li>
+                        <li>Free Shipping</li>
+                    </ul>
+
+                    <a href="checkout.php?card=2" class="cta-button secondary fullwidth btn-icon">
+                        <i class="fas fa-check"></i>
+                        <span>Select Card</span>
+                    </a>
+                </div>
+
+                <div class="pricing-card featured" data-scroll>
+                    <h3>Metal Elite</h3>
+                    <div class="price">₦12,000</div>
+                    <p class="price-period">one-time payment</p>
+
+                    <ul class="features-list">
+                        <li>Premium Metal Finish</li>
+                        <li>Advanced NFC Chip</li>
+                        <li>QR Code Backup</li>
+                        <li>Digital Profile</li>
+                        <li>Priority Shipping</li>
+                        <li>Lifetime Warranty</li>
+                    </ul>
+
+                    <a href="checkout.php?card=1" class="cta-button primary fullwidth btn-icon">
+                        <i class="fas fa-star"></i>
+                        <span>Select Card</span>
+                    </a>
+                </div>
+
+                <div class="pricing-card" data-scroll>
+                    <h3>Wood Craft</h3>
+                    <div class="price">₦10,500</div>
+                    <p class="price-period">one-time payment</p>
+
+                    <ul class="features-list">
+                        <li>Natural Wood Finish</li>
+                        <li>NFC Chip Technology</li>
+                        <li>QR Code Backup</li>
+                        <li>Digital Profile</li>
+                        <li>Free Shipping</li>
+                        <li>Eco-Friendly</li>
+                    </ul>
+
+                    <a href="checkout.php?card=4" class="cta-button secondary fullwidth btn-icon">
+                        <i class="fas fa-seedling"></i>
+                        <span>Select Card</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container container-narrow">
+            <div class="section-header" data-scroll>
+                <h2 class="h2">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about Carteon</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
-                        <h3>Do <?php echo $companyName; ?> Cards work with all smartphones?</h3>
-                        <span class="faq-toggle">+</span>
+                        <h3>Do CARTEON Cards work with all smartphones?</h3>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Yes. They work with all NFC-enabled smartphones, and each card also comes with a QR code at the back so anyone can connect with you, even if their phone doesn't support NFC.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
                         <h3>Can I update my details after I get my card?</h3>
-                        <span class="faq-toggle">+</span>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Absolutely! You can edit your profile anytime without reprinting.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
-                        <h3>What makes <?php echo $companyName; ?> better than paper business cards?</h3>
-                        <span class="faq-toggle">+</span>
+                        <h3>What makes CARTEON better than paper business cards?</h3>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Paper cards get lost, forgotten, or require manual typing to save contacts. With Carteon, your info is saved instantly into their phone, ensuring you're never forgotten.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
                         <h3>How do I share my details with someone who doesn't have NFC?</h3>
-                        <span class="faq-toggle">+</span>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Every Carteon Card has a QR code at the back. They can simply scan it with their camera and instantly access your profile.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
-                        <h3>Do I need an app to use <?php echo $companyName; ?> Cards?</h3>
-                        <span class="faq-toggle">+</span>
+                        <h3>Do I need an app to use CARTEON Cards?</h3>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>No app is required. Just tap or scan, and your profile opens instantly on their phone browser.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
                         <h3>Can I include more than just my phone number?</h3>
-                        <span class="faq-toggle">+</span>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! You can add your phone number, email, WhatsApp, Instagram, LinkedIn, website, portfolio, or even payment links.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
                         <h3>What if I change jobs or phone numbers?</h3>
-                        <span class="faq-toggle">+</span>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>No problem. You can update your details anytime from your profile dashboard, and it syncs automatically.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
                         <h3>How durable are the cards?</h3>
-                        <span class="faq-toggle">+</span>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Very durable. Our metal cards are scratch-resistant and long-lasting, PVC cards are strong and flexible, and wooden cards are polished and reinforced.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+
+                <div class="faq-item" data-scroll>
                     <div class="faq-question">
                         <h3>Can I order for my entire team or company?</h3>
-                        <span class="faq-toggle">+</span>
+                        <div class="faq-toggle"></div>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! We offer bulk orders and corporate packages with branded designs for companies, startups, and events.</p>
@@ -235,58 +286,36 @@ $currentYear = CURRENT_YEAR;
         </div>
     </section>
 
-    <section id="complimentary-cards">
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
         <div class="container">
-            <h2>Complimentary Cards</h2>
-            <p>Choose from our selection of premium complimentary cards</p>
-            <div class="cards-grid">
-                <div class="card-item" data-card-id="1">
-                    <div class="card-image">
-                        <img src="assets/images/card1.jpg" alt="Metal Card">
-                    </div>
-                    <div class="card-content">
-                        <h3>Metal Card</h3>
-                        <p class="card-price">₦12,000</p>
-                        <button class="btn primary card-select-btn">Select Card</button>
-                    </div>
-                </div>
-                <div class="card-item" data-card-id="2">
-                    <div class="card-image">
-                        <img src="assets/images/card2.jpg" alt="PVC Black Card">
-                    </div>
-                    <div class="card-content">
-                        <h3>PVC Black Card</h3>
-                        <p class="card-price">₦8,500</p>
-                        <button class="btn primary card-select-btn">Select Card</button>
-                    </div>
-                </div>
-                <div class="card-item" data-card-id="3">
-                    <div class="card-image">
-                        <img src="assets/images/card3.jpg" alt="PVC White Card">
-                    </div>
-                    <div class="card-content">
-                        <h3>PVC White Card</h3>
-                        <p class="card-price">₦8,500</p>
-                        <button class="btn primary card-select-btn">Select Card</button>
-                    </div>
-                </div>
-                <div class="card-item" data-card-id="4">
-                    <div class="card-image">
-                        <img src="assets/images/card4.jpg" alt="Wood Card">
-                    </div>
-                    <div class="card-content">
-                        <h3>Wood Card</h3>
-                        <p class="card-price">₦10,500</p>
-                        <button class="btn primary card-select-btn">Select Card</button>
-                    </div>
-                </div>
+            <div class="section-header" data-scroll>
+                <h2 class="h2">Ready to Elevate Your Networking?</h2>
+                <p>Join thousands of professionals who have made the switch to smart business cards.</p>
+            </div>
+
+            <div class="cta-actions" data-scroll>
+                <a href="#pricing" class="cta-button primary btn-icon">
+                    <i class="fas fa-rocket"></i>
+                    <span>Get Your Card Now</span>
+                </a>
+                <a href="#how-it-works" class="cta-button outline btn-icon">
+                    <i class="fas fa-book"></i>
+                    <span>Learn More</span>
+                </a>
             </div>
         </div>
     </section>
 
     <?php include 'components/footer.php'; ?>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/three-effects.js"></script>
 </body>
 
 </html>
