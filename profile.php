@@ -15,15 +15,11 @@ $userData = array(
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile | <?php echo SITE_TITLE; ?></title>
-    <meta name="description" content="Your <?php echo COMPANY_NAME; ?> profile page.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <?php
+    $page_title = 'Profile';
+    $page_description = 'Your ' . COMPANY_NAME . ' profile page.';
+    include 'components/head.php';
+    ?>
 </head>
 
 <body data-theme="<?php echo get_theme(); ?>">
@@ -39,7 +35,9 @@ $userData = array(
             <div class="profile-container">
                 <div class="profile-header">
                     <div class="profile-image-container">
-                        <img src="assets/images/profile-default.jpg" alt="Profile Picture" class="profile-image">
+                        <div class="profile-image-placeholder">
+                            <i class="fas fa-camera"></i>
+                        </div>
                         <div class="edit-overlay">
                             <i class="fas fa-camera"></i>
                         </div>
@@ -85,7 +83,13 @@ $userData = array(
 
     <?php include 'components/footer.php'; ?>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/three-effects.js"></script>
 </body>
 
 </html>
