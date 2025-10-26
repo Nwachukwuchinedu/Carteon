@@ -1009,6 +1009,8 @@ body[data-theme="dark"] .sun {
 /* Login Section */
 #login {
   padding-top: 120px;
+  padding-bottom: 120px;
+  background: var(--background);
 }
 
 #login .container {
@@ -2048,6 +2050,7 @@ body[data-theme="dark"] .alert.error {
 #profile {
   padding: 140px 0 80px;
   min-height: 100vh;
+  background:var(--background);
 }
 
 #profile .container {
