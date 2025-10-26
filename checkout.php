@@ -1,146 +1,143 @@
 <?php
-// Include configuration
+// checkout.php - Modernized Checkout
 require_once 'utils/config.php';
 
-// Check if form is submitted
+// Process form submission and card data (existing logic)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get form data
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
     $address = isset($_POST['address']) ? trim($_POST['address']) : '';
     $cardId = isset($_POST['card_id']) ? intval($_POST['card_id']) : 1;
 
-    // Validate form data
     $errors = array();
+    if (empty($name)) $errors[] = 'Name is required';
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Valid email is required';
+    if (empty($phone)) $errors[] = 'Phone number is required';
+    if (empty($address)) $errors[] = 'Address is required';
 
-    if (empty($name)) {
-        $errors[] = 'Name is required';
-    }
-
-    if (empty($email)) {
-        $errors[] = 'Email is required';
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Invalid email format';
-    }
-
-    if (empty($phone)) {
-        $errors[] = 'Phone number is required';
-    }
-
-    if (empty($address)) {
-        $errors[] = 'Address is required';
-    }
-
-    // If no errors, process the order
     if (empty($errors)) {
-        // In a real application, you would save the order to a database
-        // For now, we'll just display a success message
-        $success = 'Thank you for your order, ' . htmlspecialchars($name) . '! We will contact you shortly to confirm your order details.';
-
-        // Redirect to profile page after successful submission
-        // header('Location: profile.php');
-        // exit();
+        $success = 'Thank you for your order, ' . htmlspecialchars($name) . '! We will contact you shortly.';
     }
 }
 
-// Get card ID from URL parameter
 $cardId = isset($_GET['card']) ? intval($_GET['card']) : 1;
-
-// Card information
 $cards = array(
-    1 => array('name' => 'Metal Card', 'price' => '₦12,000'),
-    2 => array('name' => 'PVC Black Card', 'price' => '₦8,500'),
-    3 => array('name' => 'PVC White Card', 'price' => '₦8,500'),
-    4 => array('name' => 'Wood Card', 'price' => '₦10,500')
+    1 => array('name' => 'Metal Elite Card', 'price' => '₦12,000', 'description' => 'Premium metal finish with advanced NFC'),
+    2 => array('name' => 'PVC Classic Card', 'price' => '₦8,500', 'description' => 'Durable PVC with reliable NFC'),
+    3 => array('name' => 'PVC White Card', 'price' => '₦8,500', 'description' => 'Clean white PVC design'),
+    4 => array('name' => 'Wood Craft Card', 'price' => '₦10,500', 'description' => 'Natural wood with eco-friendly appeal')
 );
-
 $selectedCard = isset($cards[$cardId]) ? $cards[$cardId] : $cards[1];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | <?php echo SITE_TITLE; ?></title>
-    <meta name="description" content="Checkout for your <?php echo COMPANY_NAME; ?> digital business card.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <?php
+    $page_title = 'Checkout';
+    $page_description = 'Complete your order for ' . COMPANY_NAME . ' smart business cards.';
+    include 'components/head.php';
+    ?>
 </head>
 
 <body data-theme="<?php echo get_theme(); ?>">
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <?php include 'components/header.php'; ?>
 
-    <section id="checkout">
+    <section class="checkout-section">
         <div class="container">
-            <h2>Checkout</h2>
             <div class="checkout-container">
-                <div class="order-summary">
-                    <h3>Order Summary</h3>
-                    <div class="card-summary">
-                        <div class="card-image">
-                            <img src="assets/images/card<?php echo $cardId; ?>.jpg" alt="<?php echo $selectedCard['name']; ?>">
-                        </div>
-                        <div class="card-details">
-                            <h4><?php echo $selectedCard['name']; ?></h4>
-                            <p class="card-price"><?php echo $selectedCard['price']; ?></p>
-                        </div>
-                    </div>
+                <div class="checkout-header" data-scroll>
+                    <h1 class="h2">Complete Your Order</h1>
+                    <p>You're just a few steps away from your smart business card</p>
                 </div>
 
-                <div class="checkout-form">
-                    <h3>Billing Information</h3>
+                <div class="checkout-grid">
+                    <!-- Order Summary -->
+                    <div class="order-summary" data-scroll>
+                        <h3>Order Summary</h3>
+                        <div class="summary-card">
+                            <div class="card-preview-small">
+                                <div class="card-image">
+                                    <img src="assets/images/card<?php echo $cardId; ?>.jpg" alt="<?php echo $selectedCard['name']; ?>">
+                                </div>
+                                <div class="card-details">
+                                    <h4><?php echo $selectedCard['name']; ?></h4>
+                                    <p class="card-description"><?php echo $selectedCard['description']; ?></p>
+                                    <div class="card-price"><?php echo $selectedCard['price']; ?></div>
+                                </div>
+                            </div>
 
-                    <?php if (isset($success)): ?>
-                        <div class="alert success">
-                            <p><?php echo $success; ?></p>
+                            <div class="order-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>NFC Technology</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>QR Code Backup</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Digital Profile</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Free Shipping</span>
+                                </div>
+                            </div>
                         </div>
-                    <?php endif; ?>
+                    </div>
 
-                    <?php if (isset($errors) && !empty($errors)): ?>
-                        <div class="alert error">
-                            <ul>
-                                <?php foreach ($errors as $error): ?>
-                                    <li><?php echo htmlspecialchars($error); ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
+                    <!-- Checkout Form -->
+                    <div class="checkout-form-container" data-scroll>
+                        <h3>Shipping Information</h3>
 
-                    <form method="POST" action="checkout.php?card=<?php echo $cardId; ?>">
-                        <input type="hidden" name="card_id" value="<?php echo $cardId; ?>">
+                        <?php if (isset($success)): ?>
+                            <div class="alert success">
+                                <p><?php echo $success; ?></p>
+                            </div>
+                        <?php endif; ?>
 
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>" required>
-                        </div>
+                        <?php if (isset($errors) && !empty($errors)): ?>
+                            <div class="alert error">
+                                <ul>
+                                    <?php foreach ($errors as $error): ?>
+                                        <li><?php echo htmlspecialchars($error); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
 
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>" required>
-                        </div>
+                        <form method="POST" action="checkout.php?card=<?php echo $cardId; ?>" class="checkout-form">
+                            <input type="hidden" name="card_id" value="<?php echo $cardId; ?>">
 
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" value="<?php echo isset($phone) ? htmlspecialchars($phone) : ''; ?>" required>
-                        </div>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>" required>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="address">Shipping Address</label>
-                            <textarea id="address" name="address" rows="3" required><?php echo isset($address) ? htmlspecialchars($address) : ''; ?></textarea>
-                        </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>" required>
+                            </div>
 
-                        <button type="submit" class="btn primary">Complete Order</button>
-                    </form>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" value="<?php echo isset($phone) ? htmlspecialchars($phone) : ''; ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Shipping Address</label>
+                                <textarea id="address" name="address" rows="3" required><?php echo isset($address) ? htmlspecialchars($address) : ''; ?></textarea>
+                            </div>
+
+                            <button type="submit" class="cta-button primary fullwidth btn-icon">
+                                <i class="fas fa-check"></i>
+                                <span>Complete Order</span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -148,7 +145,13 @@ $selectedCard = isset($cards[$cardId]) ? $cards[$cardId] : $cards[1];
 
     <?php include 'components/footer.php'; ?>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/three-effects.js"></script>
 </body>
 
 </html>
