@@ -40,7 +40,7 @@ http_response_code(404);
                         <i class="fas fa-home"></i>
                         <span>Back to Home</span>
                     </a>
-                    <a href="#pricing" class="cta-button secondary btn-icon">
+                    <a href="/#pricing" class="cta-button secondary btn-icon">
                         <i class="fas fa-id-card"></i>
                         <span>Get Your Card</span>
                     </a>
