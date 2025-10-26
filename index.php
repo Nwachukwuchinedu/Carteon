@@ -20,7 +20,7 @@ require_once 'utils/config.php';
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content" data-scroll data-stagger>
-                <div class="hero-badge" data-stagger-child>
+                <div class="badge" data-stagger-child>
                     <span>Next Generation Business Cards</span>
                 </div>
 
@@ -30,7 +30,7 @@ require_once 'utils/config.php';
                 </h1>
 
                 <p class="hero-description" data-stagger-child>
-                    Share your contact information with a simple tap. No apps, no typing—just seamless connections that leave a lasting impression.
+                    Share your contact information with a simple tap. No apps, no typing, just seamless connections that leave a lasting impression.
                 </p>
 
                 <div class="hero-actions" data-stagger-child>
@@ -51,6 +51,9 @@ require_once 'utils/config.php';
     <section class="features" id="features">
         <div class="container">
             <div class="section-header" data-scroll>
+                 <div class="badge" data-stagger-child>
+                    <span>Key Benefits</span>
+                </div>
                 <h2 class="h2">Why Choose Carteon?</h2>
                 <p class="section-subtitle">Designed for professionals who value efficiency and style</p>
             </div>
@@ -69,7 +72,7 @@ require_once 'utils/config.php';
                         <i class="fas fa-sync-alt fa-2x"></i>
                     </div>
                     <h3>Always Updated</h3>
-                    <p>Change your details anytime. Your digital card updates automatically—no reprints needed.</p>
+                    <p>Change your details anytime. Your digital card updates automatically, no reprints needed.</p>
                 </div>
 
                 <div class="feature-card" data-scroll>
@@ -87,6 +90,9 @@ require_once 'utils/config.php';
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header" data-scroll>
+                 <div class="badge" data-stagger-child>
+                    <span>Easy and Seamless</span>
+                </div>
                 <h2 class="h2">How It Works</h2>
                 <p class="section-subtitle">Simple, fast, and incredibly effective</p>
             </div>
@@ -107,7 +113,7 @@ require_once 'utils/config.php';
                 <div class="step" data-scroll>
                     <div class="step-number">3</div>
                     <h3>Share</h3>
-                    <p>They save your contact with one click—no typing required</p>
+                    <p>They save your contact with one click, no typing required.</p>
                 </div>
             </div>
         </div>
@@ -117,6 +123,9 @@ require_once 'utils/config.php';
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header" data-scroll>
+                <div class="badge" data-stagger-child>
+                    <span>Pricing</span>
+                </div>
                 <h2 class="h2">Choose Your Card</h2>
                 <p class="section-subtitle">Premium materials, exceptional quality</p>
             </div>
@@ -188,6 +197,9 @@ require_once 'utils/config.php';
     <section class="faq" id="faq">
         <div class="container container-narrow">
             <div class="section-header" data-scroll>
+                 <div class="badge" data-stagger-child>
+                    <span>FAQs</span>
+                </div>
                 <h2 class="h2">Frequently Asked Questions</h2>
                 <p class="section-subtitle">Everything you need to know about Carteon</p>
             </div>
@@ -290,6 +302,9 @@ require_once 'utils/config.php';
     <section class="cta-section" id="cta">
         <div class="container">
             <div class="section-header" data-scroll>
+                 <div class="badge" data-stagger-child>
+                    <span>Call to Action</span>
+                </div>
                 <h2 class="h2">Ready to Elevate Your Networking?</h2>
                 <p>Join thousands of professionals who have made the switch to smart business cards.</p>
             </div>
