@@ -2,7 +2,7 @@ name: Keep Server Awake
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Every 5 minutes
+    - cron: "*/5 * * * *" # Every 5 minutes
   workflow_dispatch:
 
 jobs:
@@ -10,5 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render health endpoint
-        run: curl -fsS https://carteon.onrender.com || exit 1
-
+        run: curl -fsS https://carteon.onrender.com/health.php || exit 1
