@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render health endpoint
-        run: curl -fsS https://carteon.onrender.com/health.php || exit 1
+        run: curl -fsS https://carteon.onrender.com/health || exit 1
