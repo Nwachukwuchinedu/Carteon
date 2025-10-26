@@ -400,6 +400,9 @@ class CarteonApp {
           element.textContent += text.charAt(i);
           i++;
           setTimeout(typeWriter, 50);
+        } else {
+          // Remove the caret animation when typing is complete
+          element.style.borderRight = "none";
         }
       };
 
