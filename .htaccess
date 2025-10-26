@@ -4,6 +4,9 @@ RewriteEngine On
 # Custom 404 error page
 ErrorDocument 404 /404.php
 
+# Redirect .php URLs to non-.php URLs (301 redirect)
+RewriteRule ^(.*)\.php$ /$1 [R=301,L]
+
 # Remove .php extension from URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
