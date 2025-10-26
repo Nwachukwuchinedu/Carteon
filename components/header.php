@@ -5,7 +5,7 @@ $theme = get_theme();
 <header id="page-header" class="header">
     <div class="container">
         <div class="logo">
-            <a href="index.php" class="logo-link">
+            <a href="/" class="logo-link">
                 <div class="logo-mark">
                     <img src="assets/images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="logo-image">
                 </div>
@@ -19,7 +19,7 @@ $theme = get_theme();
                 <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
                 <li><a href="#pricing" class="nav-link">Pricing</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
-                <li><a href="login.php" class="nav-link login-btn">Sign In</a></li>
+                <li><a href="login" class="nav-link login-btn">Sign In</a></li>
             </ul>
         </nav>
 
@@ -50,7 +50,7 @@ $theme = get_theme();
                 <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
                 <a href="#pricing" class="mobile-nav-link">Pricing</a>
                 <a href="#faq" class="mobile-nav-link">FAQ</a>
-                <a href="login.php" class="mobile-nav-link">Sign In</a>
+                <a href="login" class="mobile-nav-link">Sign In</a>
             </nav>
         </div>
     </div>

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $success = 'Login successful! Welcome back.';
 
         // Redirect to profile page after successful login
-        header('Location: profile.php');
+        header('Location: profile');
         exit();
     }
 }
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </form>
 
                 <div class="login-footer">
-                    <p>Don't have an account? <a href="index.php#complimentary-cards">Order a card</a></p>
+                    <p>Don't have an account? <a href="index#complimentary-cards">Order a card</a></p>
                 </div>
             </div>
         </div>

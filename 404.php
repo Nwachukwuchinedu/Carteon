@@ -36,11 +36,11 @@ http_response_code(404);
                 </p>
 
                 <div class="error-actions">
-                    <a href="index.php" class="cta-button primary btn-icon">
+                    <a href="/" class="cta-button primary btn-icon">
                         <i class="fas fa-home"></i>
                         <span>Back to Home</span>
                     </a>
-                    <a href="index.php#pricing" class="cta-button secondary btn-icon">
+                    <a href="#pricing" class="cta-button secondary btn-icon">
                         <i class="fas fa-id-card"></i>
                         <span>Get Your Card</span>
                     </a>
@@ -48,7 +48,7 @@ http_response_code(404);
 
                 <div class="error-search">
                     <p>Or try searching for what you need:</p>
-                    <form action="index.php" method="GET" class="search-form">
+                    <form action="/" method="GET" class="search-form">
                         <input type="text" name="search" placeholder="Search..." aria-label="Search">
                         <button type="submit" class="search-button">
                             <i class="fas fa-search"></i>

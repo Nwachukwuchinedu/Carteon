@@ -144,7 +144,7 @@ require_once 'utils/config.php';
                         <li>Free Shipping</li>
                     </ul>
 
-                    <a href="checkout.php?card=2" class="cta-button secondary fullwidth btn-icon">
+                    <a href="checkout?card=2" class="cta-button secondary fullwidth btn-icon">
                         <i class="fas fa-check"></i>
                         <span>Select Card</span>
                     </a>
@@ -164,7 +164,7 @@ require_once 'utils/config.php';
                         <li>Lifetime Warranty</li>
                     </ul>
 
-                    <a href="checkout.php?card=1" class="cta-button primary fullwidth btn-icon">
+                    <a href="checkout?card=1" class="cta-button primary fullwidth btn-icon">
                         <i class="fas fa-star"></i>
                         <span>Select Card</span>
                     </a>
@@ -184,7 +184,7 @@ require_once 'utils/config.php';
                         <li>Eco-Friendly</li>
                     </ul>
 
-                    <a href="checkout.php?card=4" class="cta-button secondary fullwidth btn-icon">
+                    <a href="checkout?card=4" class="cta-button secondary fullwidth btn-icon">
                         <i class="fas fa-seedling"></i>
                         <span>Select Card</span>
                     </a>
