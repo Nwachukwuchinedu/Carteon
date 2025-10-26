@@ -38,7 +38,6 @@ $theme = get_theme();
             <button class="mobile-menu-toggle" id="mobile-menu-button" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
-                <span></span>
             </button>
         </div>
     </div>
