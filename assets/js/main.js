@@ -1,323 +1,459 @@
-// Custom Cursor
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorOutline = document.querySelector(".cursor-outline");
-
-// Theme Toggle
-const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-// Mobile Menu
-const mobileMenuButton = document.getElementById("mobile-menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
-const mobileMenuBackdrop = document.getElementById("mobile-menu-backdrop");
-
-// FAQ Items
-const faqItems = document.querySelectorAll(".faq-item");
-
-// Header scroll effect
-const header = document.getElementById("page-header");
-
-// Hero Card Content Cycles
-const heroCardContent = document.querySelector(".card-content");
-let currentCardState = 0;
-
-// Initialize
-document.addEventListener("DOMContentLoaded", function () {
-  // Set theme from localStorage or default to light
-  const savedTheme = localStorage.getItem("theme") || "light";
-  body.setAttribute("data-theme", savedTheme);
-
-  // Update theme toggle button appearance
-  updateThemeToggleIcon(savedTheme);
-
-  // Initialize scroll animations
-  initScrollAnimations();
-
-  // Initialize custom cursor
-  initCustomCursor();
-
-  // Initialize hero card cycling
-  initHeroCardCycle();
-});
-
-// Theme Toggle Functionality
-function toggleTheme() {
-  const currentTheme = body.getAttribute("data-theme");
-  const newTheme = currentTheme === "light" ? "dark" : "light";
-
-  body.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
-  updateThemeToggleIcon(newTheme);
-}
-
-themeToggle.addEventListener("click", toggleTheme);
-
-// Mobile theme toggle
-const mobileThemeToggle = document.getElementById("theme-toggle-mobile");
-if (mobileThemeToggle) {
-  mobileThemeToggle.addEventListener("click", toggleTheme);
-}
-
-function updateThemeToggleIcon(theme) {
-  // The CSS handles the visibility of sun/moon icons
-  // This function is here for potential future enhancements
-}
-
-// Mobile Menu Functionality
-mobileMenuButton.addEventListener("click", function () {
-  mobileMenu.classList.toggle("active");
-  mobileMenuButton.classList.toggle("active");
-  mobileMenuBackdrop.classList.toggle("active");
-  body.classList.toggle("no-scroll");
-});
-
-// Close mobile menu when clicking on backdrop
-if (mobileMenuBackdrop) {
-  mobileMenuBackdrop.addEventListener("click", function () {
-    mobileMenu.classList.remove("active");
-    mobileMenuButton.classList.remove("active");
-    mobileMenuBackdrop.classList.remove("active");
-    body.classList.remove("no-scroll");
-  });
-}
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll(".mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    mobileMenuButton.classList.remove("active");
-    mobileMenuBackdrop.classList.remove("active");
-    body.classList.remove("no-scroll");
-  });
-});
-
-// Close mobile menu when clicking on close button
-// Removed as we're using backdrop click to close
-
-// FAQ Accordion Functionality
-faqItems.forEach((item) => {
-  const question = item.querySelector(".faq-question");
-
-  // Click event
-  question.addEventListener("click", () => {
-    // Close all other FAQ items
-    faqItems.forEach((otherItem) => {
-      if (otherItem !== item && otherItem.classList.contains("active")) {
-        otherItem.classList.remove("active");
-      }
-    });
-
-    // Toggle current item
-    item.classList.toggle("active");
-  });
-
-  // Hover event
-  item.addEventListener("mouseenter", () => {
-    // Close all other FAQ items
-    faqItems.forEach((otherItem) => {
-      if (otherItem !== item && otherItem.classList.contains("active")) {
-        otherItem.classList.remove("active");
-      }
-    });
-
-    // Activate current item
-    item.classList.add("active");
-  });
-
-  // Mouse leave event - optional: keep open or close
-  item.addEventListener("mouseleave", () => {
-    // Uncomment the next line if you want to close the FAQ on mouse leave
-    // item.classList.remove("active");
-  });
-});
-
-// Header Scroll Effect
-window.addEventListener("scroll", function () {
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-
-// Card Selection Functionality
-const cardSelectButtons = document.querySelectorAll(".card-select-btn");
-cardSelectButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const cardId = this.closest(".card-item").dataset.cardId;
-    window.location.href = `checkout.php?card=${cardId}`;
-  });
-});
-
-// Profile Image Edit Functionality
-const profileImageContainer = document.querySelector(
-  ".profile-image-container"
-);
-if (profileImageContainer) {
-  profileImageContainer.addEventListener("click", function () {
-    // In a real application, this would trigger a file upload dialog
-    alert("Profile image upload functionality would be implemented here.");
-  });
-}
-
-// Custom Cursor Implementation
-function initCustomCursor() {
-  // Only initialize on desktop devices
-  if (window.innerWidth <= 768) {
-    cursorDot.style.display = "none";
-    cursorOutline.style.display = "none";
-    return;
+// main.js - Enhanced with Framer Motion-inspired animations
+class CarteonApp {
+  constructor() {
+    this.init();
   }
 
-  document.addEventListener("mousemove", function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
+  init() {
+    this.setupTheme();
+    this.setupMobileMenu();
+    this.setupScrollAnimations();
+    this.setupFAQs();
+    this.setupSmoothScrolling();
+    this.setupCardInteractions();
+    this.setupParallaxEffects();
+    this.setupMicroInteractions();
+    this.setupAutoWritingEffects();
+    this.setupScrollToTop();
+  }
 
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
+  // Theme Management
+  setupTheme() {
+    const themeToggle = document.getElementById("theme-toggle");
+    const currentTheme = localStorage.getItem("theme") || "light";
 
-    // Delayed movement for outline for smooth effect
-    setTimeout(() => {
-      cursorOutline.style.left = `${posX}px`;
-      cursorOutline.style.top = `${posY}px`;
-    }, 50);
-  });
+    document.body.setAttribute("data-theme", currentTheme);
 
-  // Hover effects for interactive elements
-  const hoverElements = document.querySelectorAll(
-    "a, button, .faq-question, .step-card, .feature-card"
-  );
+    themeToggle.addEventListener("click", () => {
+      const newTheme =
+        document.body.getAttribute("data-theme") === "light" ? "dark" : "light";
+      document.body.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
 
-  hoverElements.forEach((element) => {
-    element.addEventListener("mouseenter", () => {
-      cursorDot.classList.add("hover");
-      cursorOutline.classList.add("hover");
+      // Add theme transition class
+      document.body.classList.add("theme-changing");
+      setTimeout(() => {
+        document.body.classList.remove("theme-changing");
+      }, 300);
+    });
+  }
+
+  // Mobile Menu
+  setupMobileMenu() {
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+      menuButton.classList.toggle("active");
+      mobileMenu.classList.toggle("active");
+      document.body.style.overflow = mobileMenu.classList.contains("active")
+        ? "hidden"
+        : "";
     });
 
-    element.addEventListener("mouseleave", () => {
-      cursorDot.classList.remove("hover");
-      cursorOutline.classList.remove("hover");
+    // Close menu when clicking on links
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuButton.classList.remove("active");
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = "";
+      });
     });
-  });
-}
+  }
 
-// Scroll Animations with IntersectionObserver
-function initScrollAnimations() {
-  const sections = document.querySelectorAll("section");
+  // Scroll Animations with Intersection Observer
+  setupScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px",
+    };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Add visible class when scrolling into view
           entry.target.classList.add("visible");
+
+          // Stagger children animations
+          if (entry.target.dataset.stagger) {
+            this.animateStaggerChildren(entry.target);
+          }
         } else {
-          // Remove visible class when scrolling out of view to allow replay
+          // Remove visible class when element exits viewport
           entry.target.classList.remove("visible");
+
+          // Reset stagger children animations
+          if (entry.target.dataset.stagger) {
+            this.resetStaggerChildren(entry.target);
+          }
         }
       });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    }
-  );
+    }, observerOptions);
 
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-}
+    // Observe all elements with data-scroll attribute
+    document.querySelectorAll("[data-scroll]").forEach((el) => {
+      observer.observe(el);
+    });
 
-// Hero Card Cycling
-function initHeroCardCycle() {
-  // Card states content
-  const cardStates = [
-    {
-      title: "Sarah Chen",
-      subtitle: "Product Manager",
-      content: `
-        <div class="profile-image">
-          <div class="placeholder">
-            <i class="fas fa-hand-point-up"></i>
-          </div>
-        </div>
-        <h2>Sarah Chen</h2>
-        <p class="title">Product Manager</p>
-        <div class="contact-info">
-          <p>Tap to Share</p>
-          <p>Hold near NFC device</p>
-        </div>
-        <button class="btn add-contact">Tap to Share</button>
-      `,
-    },
-    {
-      title: "Sarah Chen",
-      subtitle: "Product Manager",
-      content: `
-        <div class="profile-image">
-          <div class="placeholder">
-            <i class="fas fa-link"></i>
-          </div>
-        </div>
-        <h2>Sarah Chen</h2>
-        <p class="title">Product Manager</p>
-        <div class="contact-info">
-          <p>Connecting...</p>
-          <p>Transferring data</p>
-        </div>
-        <button class="btn add-contact">Connecting</button>
-      `,
-    },
-    {
-      title: "Sarah Chen",
-      subtitle: "Product Manager",
-      content: `
-        <div class="profile-image">
-          <div class="placeholder">
-            <i class="fas fa-save"></i>
-          </div>
-        </div>
-        <h2>Sarah Chen</h2>
-        <p class="title">Product Manager</p>
-        <div class="contact-info">
-          <p>Sarah Chen</p>
-          <p>+234 801 234 5678</p>
-          <p>sarah@example.com</p>
-        </div>
-        <button class="btn add-contact">Add to Contacts</button>
-      `,
-    },
-  ];
-
-  // Update card content
-  function updateCardContent() {
-    if (heroCardContent) {
-      heroCardContent.innerHTML = cardStates[currentCardState].content;
-    }
-    currentCardState = (currentCardState + 1) % cardStates.length;
+    // Header scroll effect
+    this.setupHeaderScroll();
   }
 
-  // Initial update
-  updateCardContent();
+  animateStaggerChildren(parent) {
+    const children = parent.querySelectorAll("[data-stagger-child]");
+    children.forEach((child, index) => {
+      child.style.transitionDelay = `${index * 0.1}s`;
+      child.classList.add("visible");
+    });
+  }
 
-  // Set interval to cycle every 3 seconds
-  setInterval(updateCardContent, 3000);
-}
+  resetStaggerChildren(parent) {
+    const children = parent.querySelectorAll("[data-stagger-child]");
+    children.forEach((child) => {
+      child.classList.remove("visible");
+      child.style.transitionDelay = "";
+    });
+  }
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+  setupHeaderScroll() {
+    const header = document.querySelector(".header");
 
-    const targetId = this.getAttribute("href");
-    if (targetId === "#") return;
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
 
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
+      if (currentScroll > 100) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  }
+
+  // FAQ Accordion
+  setupFAQs() {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+
+      // Add click event for mobile/touch devices
+      question.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+
+        // Close all items
+        faqItems.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+        });
+
+        // Open current if it wasn't active
+        if (!isActive) {
+          item.classList.add("active");
+        }
+      });
+
+      // Add hover events for desktop
+      item.addEventListener("mouseenter", () => {
+        // Close all items
+        faqItems.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+        });
+
+        // Open current item
+        item.classList.add("active");
+      });
+
+      // Optional: Keep the FAQ open when hovering over the answer as well
+      item.addEventListener("mouseleave", () => {
+        // Close current item
+        item.classList.remove("active");
+      });
+    });
+  }
+
+  // Smooth Scrolling
+  setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute("href"));
+
+        if (target) {
+          const header = document.querySelector(".header");
+          const headerHeight = header.offsetHeight;
+          const headerTop = parseInt(window.getComputedStyle(header).top) || 0;
+          const targetPosition =
+            target.offsetTop - headerHeight - headerTop - 20;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  }
+
+  // Card Interactions
+  setupCardInteractions() {
+    const cards = document.querySelectorAll(".feature-card, .pricing-card");
+
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        this.handleCardTilt(e, card);
+
+        // Coordinate with Three.js interactions
+        if (window.threeEffects) {
+          // Add subtle effect to 3D objects when hovering over cards
+          window.threeEffects.objects.forEach((object, index) => {
+            if (index % 3 === 0) {
+              // Only affect every third object for performance
+              object.userData.rotationSpeed.x += (Math.random() - 0.5) * 0.001;
+              object.userData.rotationSpeed.y += (Math.random() - 0.5) * 0.001;
+            }
+          });
+        }
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+      });
+    });
+  }
+
+  handleCardTilt(e, card) {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateY = (x - centerX) / 25;
+    const rotateX = (centerY - y) / 25;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+  }
+
+  // Parallax Effects
+  setupParallaxEffects() {
+    const parallaxElements = document.querySelectorAll("[data-parallax]");
+
+    window.addEventListener("scroll", () => {
+      const scrolled = window.pageYOffset;
+
+      parallaxElements.forEach((el) => {
+        const speed = el.dataset.parallaxSpeed || 0.5;
+        const yPos = -(scrolled * speed);
+        el.style.transform = `translateY(${yPos}px)`;
+      });
+
+      // Coordinate with Three.js camera parallax
+      if (window.threeEffects && window.threeEffects.camera) {
+        const scrollIntensity = scrolled * 0.0005;
+        window.threeEffects.camera.position.z = 5 + scrollIntensity;
+      }
+    });
+  }
+
+  // Micro-interactions
+  setupMicroInteractions() {
+    // Button hover effects
+    const buttons = document.querySelectorAll(".cta-button, .btn");
+
+    buttons.forEach((button) => {
+      button.addEventListener("mousemove", (e) => {
+        this.createRipple(e, button);
+      });
+
+      // Add water ripple effect on click
+      button.addEventListener("click", (e) => {
+        this.createWaterRipple(e, button);
+      });
+    });
+
+    // Input focus effects
+    const inputs = document.querySelectorAll("input, textarea");
+    inputs.forEach((input) => {
+      input.addEventListener("focus", () => {
+        input.parentElement.classList.add("focused");
+      });
+
+      input.addEventListener("blur", () => {
+        if (!input.value) {
+          input.parentElement.classList.remove("focused");
+        }
+      });
+    });
+
+    // Enhanced mouse move effects that coordinate with Three.js
+    document.addEventListener("mousemove", (e) => {
+      // Coordinate with Three.js mouse interactions
+      if (window.threeEffects) {
+        window.threeEffects.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+        window.threeEffects.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      }
+    });
+  }
+
+  createRipple(e, button) {
+    const ripple = document.createElement("span");
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+
+    // Coordinate ripple color with theme and Three.js effects
+    const theme = document.body.getAttribute("data-theme");
+    const rippleColor =
+      theme === "dark" ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 102, 255, 0.3)";
+
+    ripple.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            background: ${rippleColor};
+            border-radius: 50%;
+            position: absolute;
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+            box-shadow: 0 0 10px ${rippleColor};
+        `;
+
+    button.style.position = "relative";
+    button.style.overflow = "hidden";
+    button.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  }
+
+  // Water ripple effect
+  createWaterRipple(e, button) {
+    const ripple = document.createElement("span");
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Coordinate ripple color with theme and Three.js effects
+    const theme = document.body.getAttribute("data-theme");
+    const rippleColor =
+      theme === "dark" ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 102, 255, 0.4)";
+
+    ripple.style.cssText = `
+            width: 0;
+            height: 0;
+            left: ${x}px;
+            top: ${y}px;
+            background: ${rippleColor};
+            border-radius: 50%;
+            position: absolute;
+            animation: waterRipple 0.8s ease-out;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        `;
+
+    button.style.position = "relative";
+    button.style.overflow = "hidden";
+    button.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 800);
+  }
+
+  // Scroll to Top Button
+  setupScrollToTop() {
+    const scrollToTopButton = document.getElementById("scrollToTop");
+
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopButton.classList.add("visible");
+      } else {
+        scrollToTopButton.classList.remove("visible");
+      }
+    });
+
+    // Scroll to top when button is clicked
+    scrollToTopButton.addEventListener("click", () => {
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: 0,
         behavior: "smooth",
       });
-    }
-  });
+    });
+  }
+
+  // Auto-writing effect
+  setupAutoWritingEffects() {
+    const typewriterElements = document.querySelectorAll(".typewriter");
+
+    typewriterElements.forEach((element) => {
+      const text = element.textContent;
+      element.textContent = "";
+      element.classList.add("typewriter-active");
+
+      let i = 0;
+      const typeWriter = () => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 50);
+        }
+      };
+
+      // Start typing after a short delay
+      setTimeout(typeWriter, 1000);
+    });
+  }
+}
+
+// Initialize the app when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  new CarteonApp();
 });
+
+// Add ripple animation to CSS
+const style = document.createElement("style");
+style.textContent = `
+    @keyframes ripple {
+        from {
+            transform: scale(0);
+            opacity: 1;
+        }
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes waterRipple {
+        from {
+            width: 0;
+            height: 0;
+            opacity: 0.5;
+        }
+        to {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+    }
+    
+    .theme-changing {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Auto-writing effect */
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: var(--primary-color); }
+    }
+`;
+document.head.appendChild(style);
