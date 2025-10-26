@@ -27,10 +27,10 @@ $theme = get_theme();
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                 <div class="theme-icon">
                     <div class="sun">
-                        <i class="fas fa-sun"></i>
+                        <!-- <i class="fas fa-sun"></i> -->
                     </div>
                     <div class="moon">
-                        <i class="fas fa-moon"></i>
+                        <!-- <i class="fas fa-moon"></i> -->
                     </div>
                 </div>
             </button>
