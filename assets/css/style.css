@@ -1,10 +1,10 @@
 /* style.css - Modern Framer-inspired Design */
 :root {
   /* Light Theme */
-  --primary-color: #0066ff;
-  --primary-dark: #0052cc;
-  --primary-light: #3385ff;
-  --accent-color: #00d4aa;
+  --primary-color: #d4a574;
+  --primary-dark: #c29465;
+  --primary-light: #e6b685;
+  --accent-color: #2a9d8f;
   --error-color: #ff4d4f;
   --background: #ffffff;
   --surface: #f8fafc;
