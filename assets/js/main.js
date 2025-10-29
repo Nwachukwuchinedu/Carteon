@@ -23,18 +23,43 @@ class CarteonApp {
     const currentTheme = localStorage.getItem("theme") || "light";
 
     document.body.setAttribute("data-theme", currentTheme);
+    this.updateLogos(currentTheme);
 
     themeToggle.addEventListener("click", () => {
       const newTheme =
         document.body.getAttribute("data-theme") === "light" ? "dark" : "light";
       document.body.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
+      this.updateLogos(newTheme);
 
       // Add theme transition class
       document.body.classList.add("theme-changing");
       setTimeout(() => {
         document.body.classList.remove("theme-changing");
       }, 300);
+    });
+  }
+
+  // Update logos based on theme
+  updateLogos(theme) {
+    const logoImages = document.querySelectorAll(
+      ".logo-image, .footer-logo-image"
+    );
+
+    logoImages.forEach((logo) => {
+      if (theme === "dark") {
+        if (logo.classList.contains("logo-image-light")) {
+          logo.style.display = "none";
+        } else if (logo.classList.contains("logo-image-dark")) {
+          logo.style.display = "block";
+        }
+      } else {
+        if (logo.classList.contains("logo-image-light")) {
+          logo.style.display = "block";
+        } else if (logo.classList.contains("logo-image-dark")) {
+          logo.style.display = "none";
+        }
+      }
     });
   }
 

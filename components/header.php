@@ -7,7 +7,8 @@ $theme = get_theme();
         <div class="logo">
             <a href="/" class="logo-link">
                 <div class="logo-mark">
-                    <img src="assets/images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="logo-image">
+                    <img src="assets/images/logo-light.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="logo-image logo-image-light">
+                    <img src="assets/images/logo-dark.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="logo-image logo-image-dark">
                 </div>
                 <span class="logo-text"><?php echo COMPANY_NAME; ?></span>
             </a>

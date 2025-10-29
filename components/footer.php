@@ -7,7 +7,8 @@
             <div class="footer-brand">
                 <div class="footer-logo">
                     <div class="logo-mark">
-                        <img src="assets/images/logo.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="footer-logo-image">
+                        <img src="assets/images/logo-light.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="footer-logo-image logo-image-light">
+                        <img src="assets/images/logo-dark.png" alt="<?php echo COMPANY_NAME; ?> Logo" class="footer-logo-image logo-image-dark">
                     </div>
                     <span class="logo-text"><?php echo COMPANY_NAME; ?></span>
                 </div>

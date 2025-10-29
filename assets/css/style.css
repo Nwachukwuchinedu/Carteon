@@ -4,7 +4,7 @@
   --primary-color: #d4a574;
   --primary-dark: #c29465;
   --primary-light: #e6b685;
-  --accent-color: #2a9d8f;
+  --accent-color: #252525;
   --error-color: #ff4d4f;
   --background: #ffffff;
   --surface: #f8fafc;
@@ -299,6 +299,26 @@ body[data-theme="dark"] .header.scrolled {
 .footer-logo-image {
   height: 32px;
   width: auto;
+}
+
+.logo-image-light,
+.footer-logo-image.logo-image-light {
+  display: block;
+}
+
+.logo-image-dark,
+.footer-logo-image.logo-image-dark {
+  display: none;
+}
+
+body[data-theme="dark"] .logo-image-light,
+body[data-theme="dark"] .footer-logo-image.logo-image-light {
+  display: none;
+}
+
+body[data-theme="dark"] .logo-image-dark,
+body[data-theme="dark"] .footer-logo-image.logo-image-dark {
+  display: block;
 }
 
 .logo-text {
