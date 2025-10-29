@@ -1322,13 +1322,13 @@ body[data-theme="dark"] .sun {
 
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 5px rgba(0, 102, 255, 0.5), 0 0 10px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 5px rgba(212, 165, 116, 0.5), 0 0 10px rgba(212, 165, 116, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 102, 255, 0.8), 0 0 30px rgba(0, 102, 255, 0.5);
+    box-shadow: 0 0 20px rgba(212, 165, 116, 0.8), 0 0 30px rgba(212, 165, 116, 0.5);
   }
   100% {
-    box-shadow: 0 0 5px rgba(0, 102, 255, 0.5), 0 0 10px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 5px rgba(212, 165, 116, 0.5), 0 0 10px rgba(212, 165, 116, 0.3);
   }
 }
 
@@ -1893,7 +1893,7 @@ body[data-theme="dark"] .alert.error {
     var(--accent-color)
   );
   color: white;
-  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
@@ -1923,7 +1923,7 @@ body[data-theme="dark"] .alert.error {
 
 .cta-button.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
 }
 
 .cta-button.secondary {

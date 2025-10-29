@@ -6,7 +6,7 @@
 <title><?php echo isset($page_title) ? $page_title . ' | ' . SITE_TITLE : SITE_TITLE; ?></title>
 <meta name="description" content="<?php echo isset($page_description) ? $page_description : SITE_DESCRIPTION; ?>">
 
-<link rel="icon" type="image/png" href="assets/images/logo.png">
+<link rel="icon" type="image/png" href="assets/images/logo-dark.png">
 <!-- Preload critical resources -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
