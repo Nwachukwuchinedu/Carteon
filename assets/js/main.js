@@ -200,14 +200,20 @@ class CarteonApp {
       card.addEventListener("mousemove", (e) => {
         this.handleCardTilt(e, card);
 
-        // Coordinate with Three.js interactions
-        if (window.threeEffects) {
-          // Add subtle effect to 3D objects when hovering over cards
-          window.threeEffects.objects.forEach((object, index) => {
-            if (index % 3 === 0) {
-              // Only affect every third object for performance
-              object.userData.rotationSpeed.x += (Math.random() - 0.5) * 0.001;
-              object.userData.rotationSpeed.y += (Math.random() - 0.5) * 0.001;
+        // Coordinate with starfield interactions
+        if (window.starField) {
+          // Add subtle effect to stars when hovering over cards
+          window.starField.stars.forEach((star, index) => {
+            if (index % 5 === 0) {
+              // Only affect every fifth star for performance
+              star.element.style.transform = `scale(${
+                1 + Math.random() * 0.5
+              })`;
+              setTimeout(() => {
+                if (star.element) {
+                  star.element.style.transform = "translate(0, 0)";
+                }
+              }, 300);
             }
           });
         }
@@ -246,10 +252,17 @@ class CarteonApp {
         el.style.transform = `translateY(${yPos}px)`;
       });
 
-      // Coordinate with Three.js camera parallax
-      if (window.threeEffects && window.threeEffects.camera) {
+      // Coordinate with starfield parallax
+      if (window.starField) {
         const scrollIntensity = scrolled * 0.0005;
-        window.threeEffects.camera.position.z = 5 + scrollIntensity;
+        // Apply subtle scroll effect to stars
+        window.starField.stars.forEach((star, index) => {
+          if (index % 10 === 0) {
+            // Only affect every 10th star for performance
+            const yOffset = scrollIntensity * (index % 5);
+            star.element.style.transform = `translateY(${yOffset}px)`;
+          }
+        });
       }
     });
   }
@@ -284,12 +297,12 @@ class CarteonApp {
       });
     });
 
-    // Enhanced mouse move effects that coordinate with Three.js
+    // Enhanced mouse move effects that coordinate with starfield
     document.addEventListener("mousemove", (e) => {
-      // Coordinate with Three.js mouse interactions
-      if (window.threeEffects) {
-        window.threeEffects.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-        window.threeEffects.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      // Coordinate with starfield mouse interactions
+      if (window.starField) {
+        window.starField.mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        window.starField.mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
       }
     });
   }

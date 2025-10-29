@@ -129,19 +129,19 @@ body[data-theme="dark"] {
   );
   --gradient-features: linear-gradient(
     180deg,
-    rgba(4, 7, 13, 0.8) 0%,
-    rgba(10, 13, 20, 0.6) 50%,
-    rgba(4, 7, 13, 0.8) 100%
+    transparent 0%,
+    rgba(10, 13, 20, 0.1) 50%,
+    transparent 100%
   );
   --gradient-pricing: linear-gradient(
     90deg,
-    rgba(4, 7, 13, 0.8) 0%,
+    rgba(4, 7, 13, 0.01) 0%,
     rgba(10, 13, 20, 0.6) 50%,
-    rgba(4, 7, 13, 0.8) 100%
+    rgba(4, 7, 13, 0.01) 100%
   );
   --gradient-faq: linear-gradient(
     0deg,
-    rgba(4, 7, 13, 0.8) 0%,
+    rgba(4, 7, 13, 0.1) 0%,
     rgba(10, 13, 20, 0.6) 100%
   );
   --gradient-cta: linear-gradient(
@@ -1733,6 +1733,26 @@ body[data-theme="dark"] .alert.error {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+}
+
+/* Starfield background */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  z-index: 1;
 }
 
 /* Enhanced ripple effect */
