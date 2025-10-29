@@ -243,16 +243,19 @@ h4,
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(20px);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all var(--transition-normal);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   will-change: transform;
 }
 
 body[data-theme="dark"] .header {
-  background: rgba(10, 10, 10, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--background);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   will-change: transform;
+}
+
+body[data-theme="dark"] .logo-text {
+  color: var(--primary-color);
 }
 
 .header.scrolled {
@@ -268,8 +271,12 @@ body[data-theme="dark"] .header {
 }
 
 body[data-theme="dark"] .header.scrolled {
-  background: rgba(10, 10, 10, 0.6);
+  background: var(--background);
   will-change: transform;
+}
+
+body[data-theme="dark"] .footer .logo-text {
+  color: var(--primary-color);
 }
 
 .header .container {
