@@ -1,0 +1,23 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Set the default index file
+DirectoryIndex index.php
+
+# Redirect .html requests to .php files
+RewriteRule ^(.*)\.html$ $1.php [L,R=301]
+
+# Handle 404 errors
+ErrorDocument 404 /404.php
+
+# Security rules
+<Files ~ "\.php$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Allow PHP files
+<Files ~ "\.php$">
+    Order allow,deny
+    Allow from all
+</Files>
