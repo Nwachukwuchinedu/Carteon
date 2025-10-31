@@ -1,0 +1,240 @@
+<svg viewBox="0 0 800 600" width="5000" height="5000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for card -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#085441;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a6b52;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Phone shadow -->
+    <filter id="phoneShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Card shadow -->
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dx="2" dy="6" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.35"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Card floating animation -->
+    <animateTransform
+      id="cardFloat"
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="0 0; 0 -8; 0 0"
+      dur="3s"
+      repeatCount="indefinite"
+    />
+  </defs>
+  
+  <!-- FontAwesome CSS -->
+  <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+    
+    .fa-icon {
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+    }
+    
+    .fa-icon-brand {
+      font-family: 'Font Awesome 6 Brands';
+      font-weight: 400;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="none"/>
+  
+<!-- Carteon Business/Complementary Card (rotated -45°, floating, behind phone) -->
+<g filter="url(#cardShadow)">
+     <g transform="translate(280, 450) rotate(-45)">
+    <!-- Floating animation -->
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="0 0; 0 -8; 0 0"
+      dur="3s"
+      repeatCount="indefinite"
+      additive="sum"
+    />
+
+    <!-- Card body -->
+    <rect x="0" y="0" width="338" height="213" rx="16" fill="url(#cardGradient)"/>
+    
+    <!-- Card shine effect -->
+    <rect x="0" y="0" width="338" height="213" rx="16" fill="white" opacity="0.06"/>
+    
+    <!-- Logo/Brand area -->
+    <text x="25" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" letter-spacing="2">CARTEON</text>
+    
+    <!-- Tagline / Complementary text -->
+    <text x="25" y="80" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.85" font-style="italic">Connect Smarter. Share Instantly.</text>
+    
+    <!-- User / Recipient Name -->
+    <text x="25" y="130" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="600">Will James</text>
+    
+    <!-- Position / Role -->
+    <text x="25" y="155" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.8">Frontedn Developer</text>
+    
+    <!-- Contact info / optional -->
+    <text x="25" y="185" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.7">willjames@carteon.com | +234 812 345 6789</text>
+    
+    <!-- Decorative NFC-inspired circles (subtle branding) -->
+    <g transform="translate(280, 180)">
+      <circle cx="0" cy="0" r="12" fill="none" stroke="white" stroke-width="2" opacity="0.3"/>
+      <circle cx="0" cy="0" r="8" fill="none" stroke="white" stroke-width="2" opacity="0.2"/>
+    </g>
+  </g>
+</g>
+
+  
+  <!-- iPhone Mockup (front) -->
+  <g transform="translate(100, 80)" filter="url(#phoneShadow)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="320" height="640" rx="40" fill="#1f2937"/>
+    
+    <!-- Screen -->
+    <rect x="8" y="8" width="304" height="624" rx="34" fill="white"/>
+    
+    <!-- Notch -->
+    <rect x="100" y="8" width="120" height="28" rx="14" fill="#1f2937"/>
+    
+    <!-- Status bar -->
+    <g transform="translate(0, 20)">
+      <!-- Time -->
+      <text x="25" y="20" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#000000">9:41</text>
+      
+      <!-- Signal, WiFi, Battery icons (right side) -->
+      <g transform="translate(260, 11)">
+        <!-- Signal bars (fa-signal) -->
+        <text x="5" y="10" class="fa-icon" font-size="10" fill="#000000">&#xf012;</text>
+        
+        <!-- WiFi icon (fa-wifi) -->
+        <text x="23" y="10" class="fa-icon" font-size="10" fill="#000000">&#xf1eb;</text>
+        
+        <!-- Battery (fa-battery-full) -->
+        <text x="38" y="10" class="fa-icon" font-size="10" fill="#000000">&#xf240;</text>
+      </g>
+    </g>
+    
+    <!-- App Content -->
+    <g transform="translate(8, 50)">
+      <!-- Header -->
+      <rect x="0" y="0" width="304" height="60" fill="#085441"/>
+      <text x="152" y="35" font-family="-apple-system, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">CARTEON</text>
+      
+      <!-- Menu icon (fa-bars) -->
+      <text x="20" y="35" class="fa-icon" font-size="18" fill="white">&#xf0c9;</text>
+      
+      <!-- Profile icon (fa-user-circle) -->
+      <text x="270" y="35" class="fa-icon" font-size="20" fill="white">&#xf2bd;</text>
+      
+      <!-- Hero Section -->
+      <rect x="0" y="70" width="304" height="140" fill="#e6f4f1"/>
+      <text x="152" y="110" font-family="-apple-system, sans-serif" font-size="20" font-weight="bold" fill="#1f2937" text-anchor="middle">Connect Smarter</text>
+      <text x="152" y="135" font-family="-apple-system, sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">One tap to share your details</text>
+      
+      <!-- NFC Icon (large) -->
+      <g transform="translate(152, 165)">
+        <circle cx="0" cy="0" r="15" fill="none" stroke="#085441" stroke-width="2.5" opacity="0.8"/>
+        <circle cx="0" cy="0" r="10" fill="none" stroke="#085441" stroke-width="2.5" opacity="0.6"/>
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#085441" stroke-width="2.5" opacity="0.4"/>
+      </g>
+      
+      <!-- Feature Cards -->
+      <g transform="translate(20, 230)">
+        <!-- Card 1: Tap (fa-mobile-alt) -->
+        <rect x="0" y="0" width="80" height="90" rx="10" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+        <circle cx="40" cy="25" r="12" fill="#085441" opacity="0.1"/>
+        <text x="40" y="30" class="fa-icon" font-size="16" fill="#085441" text-anchor="middle">&#xf3cd;</text>
+        <text x="40" y="50" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" fill="#1f2937" text-anchor="middle">1. Tap</text>
+        <text x="40" y="65" font-family="-apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Hold near</text>
+        <text x="40" y="77" font-family="-apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">phone</text>
+        
+        <!-- Card 2: Connect (fa-link) -->
+        <rect x="92" y="0" width="80" height="90" rx="10" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+        <circle cx="132" cy="25" r="12" fill="#085441" opacity="0.1"/>
+        <text x="132" y="30" class="fa-icon" font-size="16" fill="#085441" text-anchor="middle">&#xf0c1;</text>
+        <text x="132" y="50" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" fill="#1f2937" text-anchor="middle">2. Connect</text>
+        <text x="132" y="65" font-family="-apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Profile</text>
+        <text x="132" y="77" font-family="-apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">appears</text>
+        
+        <!-- Card 3: Save (fa-save) -->
+        <rect x="184" y="0" width="80" height="90" rx="10" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+        <circle cx="224" cy="25" r="12" fill="#085441" opacity="0.1"/>
+        <text x="224" y="30" class="fa-icon" font-size="16" fill="#085441" text-anchor="middle">&#xf0c7;</text>
+        <text x="224" y="50" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" fill="#1f2937" text-anchor="middle">3. Save</text>
+        <text x="224" y="65" font-family="-apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Details</text>
+        <text x="224" y="77" font-family="-apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">stored</text>
+      </g>
+      
+      <!-- CTA Button -->
+      <rect x="40" y="350" width="224" height="45" rx="23" fill="#085441"/>
+      <text x="152" y="378" font-family="-apple-system, sans-serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">Order Your Card</text>
+      
+      <!-- Features List -->
+      <g transform="translate(30, 415)">
+        <!-- One-Time Investment (fa-check-circle) -->
+        <text x="0" y="4" class="fa-icon" font-size="14" fill="#10b981" text-anchor="middle">&#xf058;</text>
+        <text x="18" y="4" font-family="-apple-system, sans-serif" font-size="11" fill="#1f2937">One-Time Investment</text>
+        
+        <!-- Eco-Friendly (fa-leaf) -->
+        <text x="0" y="29" class="fa-icon" font-size="14" fill="#10b981" text-anchor="middle">&#xf06c;</text>
+        <text x="18" y="29" font-family="-apple-system, sans-serif" font-size="11" fill="#1f2937">Eco-Friendly Design</text>
+        
+        <!-- Works Everywhere (fa-globe) -->
+        <text x="0" y="54" class="fa-icon" font-size="14" fill="#10b981" text-anchor="middle">&#xf0ac;</text>
+        <text x="18" y="54" font-family="-apple-system, sans-serif" font-size="11" fill="#1f2937">Works Everywhere</text>
+      </g>
+      
+      <!-- Bottom Navigation -->
+      <rect x="0" y="520" width="304" height="60" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <g transform="translate(0, 530)">
+        <!-- Home (fa-home) -->
+        <g transform="translate(38, 0)">
+          <text x="10" y="20" class="fa-icon" font-size="20" fill="#085441" text-anchor="middle">&#xf015;</text>
+          <text x="10" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#085441" text-anchor="middle">Home</text>
+        </g>
+        
+        <!-- Products (fa-box) -->
+        <g transform="translate(113, 0)">
+          <text x="10" y="20" class="fa-icon" font-size="20" fill="#9ca3af" text-anchor="middle">&#xf466;</text>
+          <text x="10" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle">Products</text>
+        </g>
+        
+        <!-- Profile (fa-user) -->
+        <g transform="translate(188, 0)">
+          <text x="10" y="20" class="fa-icon" font-size="20" fill="#9ca3af" text-anchor="middle">&#xf007;</text>
+          <text x="10" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle">Profile</text>
+        </g>
+        
+        <!-- Settings (fa-cog) -->
+        <g transform="translate(263, 0)">
+          <text x="10" y="20" class="fa-icon" font-size="20" fill="#9ca3af" text-anchor="middle">&#xf013;</text>
+          <text x="10" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle">More</text>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Home indicator -->
+    <rect x="120" y="615" width="80" height="4" rx="2" fill="#1f2937"/>
+  </g>
+</svg>  
