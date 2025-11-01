@@ -197,6 +197,20 @@ include 'components/header.php';
                     'Digital Profile',
                     'Eco-Friendly'
                 ]
+            },
+            'premium': {
+                title: 'Premium Card',
+                description: 'Our most advanced card with premium features',
+                price: '₦15,000',
+                image: 'assets/img/cards/card4.jpg',
+                features: [
+                    'Premium Materials',
+                    'Advanced NFC Chip',
+                    'QR Code Backup',
+                    'Digital Profile',
+                    'Lifetime Warranty',
+                    'Priority Support'
+                ]
             }
         };
 
