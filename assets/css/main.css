@@ -4728,10 +4728,10 @@ body.it-magic-cursor #magic-cursor {
   justify-content: center;
 }
 
-.it-header-logo a h2,
-.it-footer-widget-logo a h2{
+.it-header-logo a h3,
+.it-footer-widget-logo a h3{
   color: #fff;
-  padding: 0 15px;
+  padding: 0 0 0 15px;
 }
 
 .it-header-logo .logo-black {

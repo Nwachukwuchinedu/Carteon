@@ -58,7 +58,7 @@
                 <div class="col-xxl-2 col-xl-2 col-6">
                     <div class="it-header-logo">
                         <a href="index.php"><img src="assets/img/logo/logo-2.png" alt="">
-                            <h2>Carteon</h2>
+                            <h3>Carteon</h3>
                         </a>
                     </div>
                 </div>

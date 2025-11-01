@@ -1,20 +1,21 @@
 # Enable rewrite engine
 RewriteEngine On
 
-# Custom 404 error page
-ErrorDocument 404 /404.php
+# Set the default index file
+DirectoryIndex index.php
 
-# Remove .php extension from URLs
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)$ $1.php [L]
+# Redirect .html requests to .php files
+RewriteRule ^(.+)\.html$ $1.php [L,R=301]
 
-# Redirect direct .php requests to non-.php URLs (301 redirect)
-RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
-RewriteRule ^(.+)\.php$ /$1 [R=301,L]
+# Handle PHP files
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
 
 # Health route
 RewriteRule ^health$ health.php [L]
+
+# Custom 404 error page - use the correct path relative to server root
+ErrorDocument 404 /saasty/404.php
 
 # Security headers
 <IfModule mod_headers.c>

@@ -7,7 +7,7 @@
                     <div class="it-footer-widget pg-footer-col-3-1">
                         <div class="it-footer-widget-logo mb-25">
                             <a href="index.php"><img src="assets/img/logo/logo-2.png" alt="">
-                                <h2>Carteon</h2>
+                                <h3>Carteon</h3>
                             </a>
                         </div>
                         <div class="it-footer-widget-text">

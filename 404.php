@@ -96,4 +96,3 @@ include 'components/head.php';
 </body>
 
 </html>
-
