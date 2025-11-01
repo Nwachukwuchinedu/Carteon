@@ -194,36 +194,11 @@ include 'components/header.php';
                                                 <input type="tel" class="profile-info-value" value="+1 (555) 123-4567">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="profile-info-item">
-                                                <label class="profile-info-label">Company</label>
-                                                <input type="text" class="profile-info-value" value="Tech Solutions Inc.">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="profile-info-item">
-                                                <label class="profile-info-label">Job Title</label>
-                                                <input type="text" class="profile-info-value" value="Marketing Director">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="profile-info-item">
-                                                <label class="profile-info-label">Bio</label>
-                                                <textarea class="profile-info-value" rows="4">Marketing professional with 10+ years of experience in digital marketing and brand strategy. Passionate about creating innovative campaigns that drive results.</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="profile-info-item">
-                                                <label class="profile-info-label">Website</label>
-                                                <input type="url" class="profile-info-value" value="https://johndoe.com">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="profile-info-item">
-                                                <label class="profile-info-label">Location</label>
-                                                <input type="text" class="profile-info-value" value="San Francisco, CA">
-                                            </div>
-                                        </div>
+
+
+
+
+
                                     </div>
 
                                     <div class="mt-30">
@@ -234,36 +209,7 @@ include 'components/header.php';
                                 </form>
                             </div>
 
-                            <div class="white-bg">
-                                <h4 class="profile-section-title">Social Links</h4>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="profile-info-item">
-                                            <label class="profile-info-label">LinkedIn</label>
-                                            <input type="url" class="profile-info-value" value="https://linkedin.com/in/johndoe">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="profile-info-item">
-                                            <label class="profile-info-label">Twitter</label>
-                                            <input type="url" class="profile-info-value" value="https://twitter.com/johndoe">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="profile-info-item">
-                                            <label class="profile-info-label">Instagram</label>
-                                            <input type="url" class="profile-info-value" value="https://instagram.com/johndoe">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="profile-info-item">
-                                            <label class="profile-info-label">Facebook</label>
-                                            <input type="url" class="profile-info-value" value="https://facebook.com/johndoe">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <!-- Profile Image and QR Code Section -->
@@ -272,7 +218,7 @@ include 'components/header.php';
                                 <h4 class="profile-section-title mb-30">Profile Image</h4>
 
                                 <div class="profile-upload-area mx-auto">
-                                    <img src="assets/img/team/team-4-1.jpg" alt="Profile Image" class="rounded-circle mb-20" style="width: 150px; height: 150px; object-fit: cover;">
+                                    <img src="assets/img/user/user.png" alt="Profile Image" class="rounded-circle mb-20" style="width: 150px; height: 150px; object-fit: cover;">
                                     <div class="profile-upload-icon">
                                         <i class="fas fa-camera"></i>
                                     </div>
@@ -304,7 +250,9 @@ include 'components/header.php';
 
         </main>
 
-        <footer>
+        <div class="mb-100"></div>
+
+        <footer class="mt-50">
             <?php include 'components/footer.php'; ?>
         </footer>
 

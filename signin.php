@@ -55,15 +55,9 @@ include 'components/header.php';
                         <div class="col-xl-10">
                             <div class="it-signup-bg">
                                 <div class="it-signup-shape-1">
-                                    <img src="assets/img/shape/signup-1-1.png" alt="">
                                 </div>
                                 <div class="row align-items-center">
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="it-signup-thumb">
-                                            <img src="assets/img/signup/signup-1-1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6">
+                                    <div class="col-xl-12 col-lg-12">
                                         <div class="it-signup-wrap">
                                             <h4 class="it-signup-title">Welcome Back</h4>
                                             <span>Sign in to continue your smart networking experience</span>
@@ -119,7 +113,9 @@ include 'components/header.php';
 
         </main>
 
-        <footer>
+        <div class="mb-50"></div>
+
+        <footer class="mt-50">
             <?php include 'components/footer.php'; ?>
         </footer>
 
