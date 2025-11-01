@@ -88,12 +88,6 @@ saasty/
 - Sets default timezone
 - Sets default character set
 
-## Database Utility (`utils/db.php`)
-
-- PDO-based database wrapper class
-- Methods for querying, binding, and executing statements
-- Transaction support
-
 ## Form Handling (`utils/contact_handler.php`)
 
 - Example of how to handle form submissions
@@ -104,8 +98,7 @@ saasty/
 
 1. Place the files in your web server's document root
 2. Configure your web server to use PHP
-3. Update the database configuration in `config/config.php` if needed
-4. Access the website through your browser
+3. Access the website through your browser
 
 ## Pages
 
@@ -137,7 +130,6 @@ To customize the website:
 
 - Input sanitization
 - CSRF token generation and verification
-- SQL injection prevention through prepared statements (in db.php)
 - XSS prevention through output escaping
 
 ## Browser Support
@@ -153,7 +145,6 @@ The website is designed to work on all modern browsers including:
 ## Dependencies
 
 - PHP 7.0 or higher
-- MySQL (for database functionality)
 - Apache or Nginx web server
 - All CSS and JavaScript libraries included in the `assets/` directory
 
