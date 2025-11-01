@@ -9919,6 +9919,37 @@ body.it-magic-cursor #magic-cursor {
   z-index: -1;
 }
 
+/* Custom styles for card images */
+.card-image {
+  margin-bottom: 20px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.it-price-head .it-price-value {
+  display: block;
+  margin: 15px 0 5px;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--it-theme-3);
+}
+
+.it-price-head p {
+  margin-bottom: 0;
+  color: #5F6168;
+  font-size: 14px;
+}
+
 .dt-price-style .it-price-item.active .it-price-tag span {
   background-color: var(--it-theme-2);
 }

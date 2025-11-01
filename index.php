@@ -174,71 +174,69 @@ include 'components/head.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="pg-section-title-box text-center mb-60">
-                                <span class="pg-section-subtitle it-fade-anim" data-fade-from="top">Pricing Plan</span>
+                                <span class="pg-section-subtitle it-fade-anim" data-fade-from="top">Our Cards</span>
                                 <h4 class="pg-section-title it-char-animation">Choose Your Card</h4>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".3">
+                        <div class="col-xl-3 col-lg-3 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".3">
                             <div class="it-price-item text-center mb-30">
                                 <div class="it-price-head">
+                                    <div class="card-image">
+                                        <img src="assets/img/cards/card1.jpg" alt="PVC Classic Card" class="img-fluid">
+                                    </div>
                                     <h4 class="it-price-title">PVC Classic</h4>
                                     <span class="it-price-value">₦8,500</span>
                                     <p>(one-time payment)</p>
-                                </div>
-                                <div class="it-price-item-list">
-                                    <ul>
-                                        <li><span><i class="fas fa-check"></i> Premium PVC Material</span></li>
-                                        <li><span><i class="fas fa-check"></i> NFC Chip Technology</span></li>
-                                        <li><span><i class="fas fa-check"></i> QR Code Backup</span></li>
-                                        <li><span><i class="fas fa-check"></i> Digital Profile</span></li>
-                                    </ul>
                                 </div>
                                 <div class="it-price-button mt-30">
                                     <a class="it-btn" href="checkout.php?product=pvc-classic">Select Card</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".5">
-                            <div class="it-price-item text-center mb-30 active">
+                        <div class="col-xl-3 col-lg-3 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".5">
+                            <div class="it-price-item text-center mb-30">
                                 <div class="it-price-head">
+                                    <div class="card-image">
+                                        <img src="assets/img/cards/card2.jpg" alt="Metal Elite Card" class="img-fluid">
+                                    </div>
                                     <h4 class="it-price-title">Metal Elite</h4>
                                     <span class="it-price-value">₦12,000</span>
                                     <p>(one-time payment)</p>
-                                </div>
-                                <div class="it-price-item-list">
-                                    <ul>
-                                        <li><span><i class="fas fa-check"></i> Premium Metal Finish</span></li>
-                                        <li><span><i class="fas fa-check"></i> Advanced NFC Chip</span></li>
-                                        <li><span><i class="fas fa-check"></i> QR Code Backup</span></li>
-                                        <li><span><i class="fas fa-check"></i> Digital Profile</span></li>
-                                        <li><span><i class="fas fa-check"></i> Lifetime Warranty</span></li>
-                                    </ul>
                                 </div>
                                 <div class="it-price-button mt-30">
                                     <a class="it-btn" href="checkout.php?product=metal-elite">Select Card</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".7">
+                        <div class="col-xl-3 col-lg-3 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".7">
                             <div class="it-price-item text-center mb-30">
                                 <div class="it-price-head">
+                                    <div class="card-image">
+                                        <img src="assets/img/cards/card3.jpg" alt="Wood Craft Card" class="img-fluid">
+                                    </div>
                                     <h4 class="it-price-title">Wood Craft</h4>
                                     <span class="it-price-value">₦10,500</span>
                                     <p>(one-time payment)</p>
                                 </div>
-                                <div class="it-price-item-list">
-                                    <ul>
-                                        <li><span><i class="fas fa-check"></i> Premium Wood Finish</span></li>
-                                        <li><span><i class="fas fa-check"></i> NFC Chip Technology</span></li>
-                                        <li><span><i class="fas fa-check"></i> QR Code Backup</span></li>
-                                        <li><span><i class="fas fa-check"></i> Digital Profile</span></li>
-                                        <li><span><i class="fas fa-check"></i> Eco-Friendly</span></li>
-                                    </ul>
-                                </div>
                                 <div class="it-price-button mt-30">
                                     <a class="it-btn" href="checkout.php?product=wood-craft">Select Card</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay=".9">
+                            <div class="it-price-item text-center mb-30">
+                                <div class="it-price-head">
+                                    <div class="card-image">
+                                        <img src="assets/img/cards/card4.jpg" alt="Premium Card" class="img-fluid">
+                                    </div>
+                                    <h4 class="it-price-title">Premium</h4>
+                                    <span class="it-price-value">₦15,000</span>
+                                    <p>(one-time payment)</p>
+                                </div>
+                                <div class="it-price-button mt-30">
+                                    <a class="it-btn" href="checkout.php?product=premium">Select Card</a>
                                 </div>
                             </div>
                         </div>
